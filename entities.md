@@ -1,35 +1,35 @@
 User:  
-Username (email)
-Password
-FirstName
-LastName
-DepartmentId
+Username (email)  
+Password  
+FirstName  
+LastName  
+DepartmentId  
 
-UserRole:
-UserId
+UserRole:  
+UserId  
 RoleId
 
-Role:
+Role:  
+Name  
+
+Department:  
 Name
 
-Department:
+Company:  
 Name
 
-Company:
-Name
+Project:  
+ParentId (to create a hierarchy of projects/sub-projects n levels deep)  
+CompanyId  
+Name  
 
-Project:
-ParentId (to create a hierarchy of projects/sub-projects n levels deep)
-CompanyId
-Name
+TimeEntry:  
+EntryDateTime  
+ProjectId  
+Description  
+IsBillable  
+InternalNotes  
 
-TimeEntry:
-EntryDateTime
-ProjectId
-Description
-IsBillable
-InternalNotes
-
-ProjectTag (Categorize time entries):
-ProjectId 
-Name
+ProjectTag (Categorize time entries):  
+ProjectId   
+Name  
