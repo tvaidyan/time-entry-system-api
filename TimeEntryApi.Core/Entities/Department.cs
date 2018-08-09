@@ -1,6 +1,6 @@
 using System;
 
-public class Department
+public class Department : IEntity
 {
     public int DepartmentId { get; set; }
     public string Name { get; set; }

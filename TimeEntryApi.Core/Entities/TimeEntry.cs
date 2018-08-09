@@ -1,6 +1,6 @@
 using System;
 
-public class TimeEntry
+public class TimeEntry : IEntity
 {
     int TimeEntryId { get; set; }
     int ProjectId { get; set; }
@@ -13,4 +13,10 @@ public class TimeEntry
     public DateTime InvoicedDate { get; set; }
     public string InvoicedBy { get; set; }
     public string InvoiceId { get; set; }
+    public DateTime CreatedDate  { get; set; }
+    public DateTime UpdatedDate  { get; set; }
+    public string CreatedBy  { get; set; }
+    public string UpdatedBy  { get; set; }
+    public bool IsDeleted  { get; set; }
+    public bool IsVisible  { get; set; }
 }

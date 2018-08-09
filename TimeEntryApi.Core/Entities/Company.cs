@@ -2,7 +2,7 @@
 
 namespace TimeEntryApi.Core
 {
-    public class Company
+    public class Company : IEntity
     {
         public int CompanyId { get; set; }
         public string Name { get; set; }

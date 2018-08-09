@@ -1,6 +1,6 @@
 using System;
 
-public class Project
+public class Project : IEntity
 {
     public int ProjectId { get; set; }
     public int ParentId { get; set; }
