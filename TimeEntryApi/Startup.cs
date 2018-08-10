@@ -28,6 +28,7 @@ namespace TimeEntryApi
         {
             services.AddDbContext<TimeEntryDbContext>(opt => 
                 opt.UseInMemoryDatabase("TimeEntry"));
+                services.AddScoped(typeof(IRepository), typeof(EntityFrameworkRepository<TimeEntryDbContext>));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
