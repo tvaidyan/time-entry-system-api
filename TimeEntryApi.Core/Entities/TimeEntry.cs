@@ -8,9 +8,9 @@ public class TimeEntry : IEntity
     public string DetailsForInvoice { get; set; }
     public bool IsBillable {get;set;}
     public string InternalNotes {get;set;}
-    public DateTime ReviewedDate {get;set;}
+    public DateTime? ReviewedDate {get;set;}
     public string ReviewedBy { get; set; }
-    public DateTime InvoicedDate { get; set; }
+    public DateTime? InvoicedDate { get; set; }
     public string InvoicedBy { get; set; }
     public string InvoiceId { get; set; }
     public DateTime CreatedDate  { get; set; }
