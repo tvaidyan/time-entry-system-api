@@ -44,21 +44,13 @@ namespace TimeEntryApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                // var user = await userManager.FindByNameAsync(model.Username);
-                var user = new Employee
-                {
-                    FirstName = "Tom",
-                    LastName = "Vaidyan",
-                    Email = "tom@test.com",
-                    UserName = "tom@test.com",
-                    Id = "testid"
-                };
+                var user = await userManager.FindByNameAsync(model.Username);
 
                 if (user != null)
                 {
                     var result = await signInManager.CheckPasswordSignInAsync(user, model.Password, false);
 
-                    if (result.Succeeded || 1 == 1)
+                    if (result.Succeeded)
                     {
                         // Create the token
                         var claims = new[] {
