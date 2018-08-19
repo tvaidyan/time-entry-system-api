@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Identity;
 
-public class Employee : IdentityUser
+public class Employee : IdentityUser, IEntity
 {
     public int DepartmentId { get; set; }
     public string FirstName { get; set; }
