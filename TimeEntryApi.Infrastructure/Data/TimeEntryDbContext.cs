@@ -14,7 +14,9 @@ public class TimeEntryDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        var emp1 = new Employee() { Id = "1", FirstName = "Tom", LastName = "Vaidyan", Email = "tom@test.com", UserName = "tom@test.com", EmailConfirmed = true, NormalizedEmail = "TOM@TEST.COM", NormalizedUserName = "TOM@TEST.COM", CreatedBy = "System", CreatedDate = DateTime.Now, UpdatedBy = "System", UpdatedDate = DateTime.Now, IsVisible = true };
+        modelBuilder.Entity<Department>().HasData(new Department{ DepartmentId=1, Name="Executive", CreatedBy = "System", CreatedDate = DateTime.Now, UpdatedBy = "System", UpdatedDate = DateTime.Now, IsVisible = true, IsDeleted=false  });
+
+        var emp1 = new Employee() { Id = "1", DepartmentId=1, FirstName = "Tom", LastName = "Vaidyan", Email = "tom@test.com", UserName = "tom@test.com", EmailConfirmed = true, NormalizedEmail = "TOM@TEST.COM", NormalizedUserName = "TOM@TEST.COM", CreatedBy = "System", CreatedDate = DateTime.Now, UpdatedBy = "System", UpdatedDate = DateTime.Now, IsVisible = true, IsDeleted=false };
 
         SetPasswordHash(emp1);
 
@@ -22,7 +24,6 @@ public class TimeEntryDbContext : DbContext
             emp1
         );
 
-        modelBuilder.Entity<Project>().HasData(new Project{ ProjectId=1, Name="Test Proj"  });
     }
 
     private void SetPasswordHash(Employee applicationUser)
