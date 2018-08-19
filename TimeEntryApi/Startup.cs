@@ -48,9 +48,9 @@ namespace TimeEntryApi
                 };
             });
 
-            services.AddDbContext<TimeEntryDbContext>(opt => 
+            services.AddDbContext<TimeEntryDbContext>(opt =>
                 opt.UseInMemoryDatabase("TimeEntry"));
-                services.AddScoped(typeof(IRepository), typeof(EntityFrameworkRepository<TimeEntryDbContext>));
+            services.AddScoped(typeof(IRepository), typeof(EntityFrameworkRepository<TimeEntryDbContext>));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors(options =>
             {
@@ -63,7 +63,7 @@ namespace TimeEntryApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, TimeEntryDbContext timeEntryDbContext)
         {
             // Ensure that the CORS call is before UseMvc
             app.UseCors("AllowSpecificOrigin");
@@ -71,6 +71,7 @@ namespace TimeEntryApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                timeEntryDbContext.Database.EnsureCreated();
             }
             else
             {

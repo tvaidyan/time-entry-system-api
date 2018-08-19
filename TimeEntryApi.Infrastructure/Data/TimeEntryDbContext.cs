@@ -8,11 +8,12 @@ public class TimeEntryDbContext : DbContext
 {
     public TimeEntryDbContext(DbContextOptions<TimeEntryDbContext> options) : base(options)
     {
-        Database.EnsureCreated();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         var emp1 = new Employee() { Id = "1", FirstName = "Tom", LastName = "Vaidyan", Email = "tom@test.com", UserName = "tom@test.com", EmailConfirmed = true, NormalizedEmail = "TOM@TEST.COM", NormalizedUserName = "TOM@TEST.COM", CreatedBy = "System", CreatedDate = DateTime.Now, UpdatedBy = "System", UpdatedDate = DateTime.Now, IsVisible = true };
 
         SetPasswordHash(emp1);
