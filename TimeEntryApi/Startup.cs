@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,6 +53,7 @@ namespace TimeEntryApi
                 opt.UseInMemoryDatabase("TimeEntry"));
             services.AddScoped(typeof(IRepository), typeof(EntityFrameworkRepository<TimeEntryDbContext>));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddAutoMapper();
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
