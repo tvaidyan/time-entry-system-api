@@ -2,9 +2,9 @@
 
 namespace TimeEntryApi.Core
 {
-    public class Company : IEntity
+    public class Client : IEntity
     {
-        public int CompanyId { get; set; }
+        public int ClientId { get; set; }
         public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }

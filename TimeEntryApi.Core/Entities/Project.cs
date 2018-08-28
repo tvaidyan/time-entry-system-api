@@ -4,7 +4,7 @@ public class Project : IEntity
 {
     public int ProjectId { get; set; }
     public int ParentId { get; set; }
-    public int CompanyId { get; set; }
+    public int ClientId { get; set; }
     public string Name { get; set; }
     public DateTime CreatedDate { get; set; }
     public string CreatedBy { get; set; }

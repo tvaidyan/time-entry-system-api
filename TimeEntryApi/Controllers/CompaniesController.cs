@@ -9,49 +9,49 @@ namespace TimeEntryApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CompaniesController : ControllerBase
+    public class ClientsController : ControllerBase
     {
         private readonly IRepository repository;
 
-        public CompaniesController(IRepository repository)
+        public ClientsController(IRepository repository)
         {
             this.repository = repository;
         }
-        // GET api/companies
+        // GET api/clients
         [HttpGet]
-        public ActionResult<IEnumerable<Company>> Get()
+        public ActionResult<IEnumerable<Client>> Get()
         {
-            return repository.GetAll<Company>().ToList();
+            return repository.GetAll<Client>().ToList();
         }
 
-        // GET api/companies/5
+        // GET api/clients/5
         [HttpGet("{id}")]
-        public ActionResult<Company> Get(int id)
+        public ActionResult<Client> Get(int id)
         {
-            return repository.GetById<Company>(id);
+            return repository.GetById<Client>(id);
         }
 
-        // POST api/companies
+        // POST api/clients
         [HttpPost]
-        public void Post([FromBody] Company company)
+        public void Post([FromBody] Client client)
         {
-            repository.Create(company);
+            repository.Create(client);
             repository.Save();
         }
 
-        // PUT api/companies/5
+        // PUT api/clients/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Company company)
+        public void Put(int id, [FromBody] Client client)
         {
-            repository.Update(company);
+            repository.Update(client);
             repository.Save();
         }
 
-        // DELETE api/companies/5
+        // DELETE api/clients/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            repository.Delete<Company>(id);
+            repository.Delete<Client>(id);
             repository.Save();
         }
     }

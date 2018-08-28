@@ -37,7 +37,7 @@ public class TimeEntryDbContext : DbContext
         applicationUser.PasswordHash = passwordHash;
     }
 
-    public DbSet<Company> Companies { get; set; }
+    public DbSet<Client> Clients { get; set; }
     public DbSet<Department> Departments { get; set; }
     public DbSet<Project> Projects { get; set; }
     public DbSet<TimeEntry> TimeEntries { get; set; }

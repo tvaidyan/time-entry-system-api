@@ -15,12 +15,12 @@ Name
 Department:  
 Name
 
-Company:  
+Client:  
 Name
 
 Project:  
 ParentId (to create a hierarchy of projects/sub-projects n levels deep)  
-CompanyId  
+ClientId  
 Name  
 
 TimeEntry:  
