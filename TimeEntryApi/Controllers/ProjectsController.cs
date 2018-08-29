@@ -54,5 +54,19 @@ namespace TimeEntryApi.Controllers
             repository.Delete<Project>(id);
             repository.Save();
         }
+
+        // Child projects
+        // api/projects/5/child-projects
+        [HttpGet("{parentProjectId}/child-projects")]
+        public ActionResult<IEnumerable<Project>> GetChildProjects(int parentProjectId)
+        {
+            // Does the parent project requested exist?
+            var parentProjectExists = repository.GetById<Project>(parentProjectId) != null;
+
+            if (!parentProjectExists)
+                return NotFound("project not found");
+
+            return repository.GetAll<Project>(x => x.Where(y => y.ParentId == parentProjectId).OrderBy(z => z.Name)).ToList();
+        }
     }
 }
