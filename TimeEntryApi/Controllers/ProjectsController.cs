@@ -60,8 +60,11 @@ namespace TimeEntryApi.Controllers
         [HttpGet("{parentProjectId}/child-projects")]
         public ActionResult<IEnumerable<Project>> GetChildProjects(int parentProjectId)
         {
-            // Does the parent project requested exist?
-            var parentProjectExists = repository.GetById<Project>(parentProjectId) != null;
+            // if the parentProjectId is something other than 0, check to see
+            // if it really exists
+
+            var parentProjectExists = parentProjectId == 0 ||
+                repository.GetById<Project>(parentProjectId) != null;
 
             if (!parentProjectExists)
                 return NotFound("project not found");
